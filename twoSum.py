@@ -7,7 +7,6 @@ def twoSum(nums, target):
             
 def twoSumHash(nums, target):
     dic = {}
-    
     for i in range(0, len(nums)):
         comp = target - nums[i]
         ind = dic.get(comp)
