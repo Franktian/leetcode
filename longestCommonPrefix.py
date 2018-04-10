@@ -1,16 +1,13 @@
 def longestCommonPrefix(strs):
+    # TODO: Implement Binary Search method
     if len(strs) == 0:
         return ''
-    if len(strs) == 1:
-        return strs[0]
-
     res = strs[0]
-    for i in range(len(strs) - 1):
-        for j in range(i + 1, len(strs)):
-            common = longestCommonPrefixTwo(strs[i], strs[j])
-            
-            if len(common) <= len(res):
-                res = common
+
+    for s in strs:
+        common = longestCommonPrefixTwo(s, res)
+        if len(common) <= len(res):
+            res = common
     return res
 
 def longestCommonPrefixTwo(s1, s2):
