@@ -4,12 +4,15 @@ def isValid(s):
     for c in s:
         if c == '{' or c == '(' or c == '[':
             st.append(c)
+            print(st)
         else:
-            if c == '}' and st[0] != '{':
+            if not st:
                 return False
-            if c == ']' and st[0] != '[':
+            if c == '}' and st[-1] != '{':
                 return False
-            if c == ')' and st[0] != '(':
+            if c == ']' and st[-1] != '[':
+                return False
+            if c == ')' and st[-1] != '(':
                 return False
             st.pop()
-    return st is []
+    return not st
