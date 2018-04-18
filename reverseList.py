@@ -19,7 +19,7 @@ if __name__ == '__main__':
     #a.next = b
     #b.next = c
 
-    f = plusOne(a)
+    f = reverseList(a)
     
     while f:
         print f.val
