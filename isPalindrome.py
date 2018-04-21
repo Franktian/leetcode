@@ -1,4 +1,7 @@
 def isPalindrome(x):
+    if x < 0:
+        return False
+
     nums = []
     while x > 0:
         nums.append(x % 10)
