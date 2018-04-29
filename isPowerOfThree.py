@@ -14,7 +14,7 @@ def getRow(rowIndex):
 
 def getNextRow(row):
     res = [1]
-    for i in range(len(lst) - 1):
-        res.append(lst[i] + lst[i + 1])
+    # for i in range(len(lst) - 1):
+        # res.append(lst[i] + lst[i + 1])
     res.append(1)
     return res
