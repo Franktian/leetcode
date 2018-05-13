@@ -19,7 +19,7 @@ def mergeTwoLists(l1, l2):
 def mergeTwoListsItr(l1, l2):
     head = ListNode(-1)
     prev = head
-    
+
     while l1 and l2:
         if l1.val <= l2.val:
             prev.next = l1
