@@ -4,14 +4,14 @@ class ListNode(object):
         self.next = None
 
 def mergeKLists(lists):
-    
+
     vals = []
     for l in lists:
         head = l
         while head:
             vals.append(head.val)
             head = head.next
-    
+
     vals.sort()
 
     head = ListNode(-1)
