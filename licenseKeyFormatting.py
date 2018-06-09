@@ -39,3 +39,31 @@ def boldWords(S, words):
             res.append('</b>')
 
     return ''.join(res)
+
+def trap(height):
+    if not height:
+        return 0
+    
+    l = len(height)
+    left_max = [0] * l
+    right_max = [0] * l
+    left_max[0] = height[0]
+
+    i = 1
+    while i < l:
+        left_max[i] = max(left_max[i - 1], height[i])
+        i += 1
+
+    right_max[l - 1] = height[l - 1]
+    j = l - 2
+    while j >= 0:
+        right_max[j] = max(right_max[j + 1], height[j])
+        j -= 1
+
+    print left_max
+    print right_max
+
+    res = 0
+    for k in range(l):
+        res += min(left_max[k], right_max[k]) - height[k]
+    return res
