@@ -24,3 +24,8 @@ if __name__ == '__main__':
     ins = [a, b]
     
     ans = mergeIntervals(ins)
+    
+    adj = (1,2), (3,4)
+    
+    for x, y in adj:
+        print "{}, {}".format(x, y)
