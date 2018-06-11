@@ -28,6 +28,30 @@ def fibonacci(n):
 
     return fibonacci(n - 1) + fibonacci(n - 2)
 
+def validPalindrome(s):
+    """
+    :type s: str
+    :rtype: bool
+    """
+    valid = True
+    if len(s) < 3:
+        return True
+    
+    for i in range(len(s)):
+        sub = s[:i] + s[i + 1:]
+        print sub
+        
+        if isPalindrome(sub):
+            return True
+
+    return False
+
+def isPalindrome(s):
+    for i in range(len(s) / 2):
+        if s[i] != s[len(s) - 1 - i]:
+            return False
+    return True
+
 if __name__ == '__main__':
     assert fibonacci(0) == 0
     assert fibonacci(1) == 1
