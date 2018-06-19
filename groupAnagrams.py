@@ -14,19 +14,15 @@ def groupAnagrams(self, strs):
     return ans.values()
 
 
-def binary(nums, target):
-    low = 0
-    high = len(nums) - 1
+def binary(nums):
+    l = 0
+    r = len(nums) - 1
     
-    while low <= high:
-        mid = (high + low) / 2
-        print mid
-
-        if nums[mid] == target:
-            return mid
-        elif nums[mid] > target:
-            high = mid - 1
+    while l < r:
+        m = (l + r) // 2
+        
+        if nums[m] > nums[r]:
+            l = m + 1
         else:
-            low = mid + 1
-    
-    return -1
+            r = m
+    return nums[l]
