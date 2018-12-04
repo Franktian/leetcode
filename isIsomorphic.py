@@ -14,7 +14,7 @@ class Solution(object):
             # ffgghhi -> 1122334
             if not s[i] in mapS:
                 mapS[s[i]] = i
-            
+
             if not t[i] in mapT:
                 mapT[t[i]] = i
 
