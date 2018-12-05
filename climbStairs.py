@@ -1,16 +1,14 @@
-def climbStairs(n):
-    if n < 3:
-        return n
-    
-    f1 = 1
-    f2 = 2
-    
-    for i in range(3, n + 1):
-        f0 = f1 + f2
-        f1 = f2
-        f2 = f0
-    return f2
+class Solution(object):
+    def minCostClimbingStairs(self, cost):
+        """
+        :type cost: List[int]
+        :rtype: int
+        """
+        dp = [0] * len(cost)
+        dp[0] = cost[0]
+        dp[1] = cost[1]
 
-def test():
-    for i in range(8):
-        print i
+        for i in range(2, len(cost)):
+            dp[i] = cost[i] + min(dp[i - 1], dp[i - 2])
+        
+        return min(dp[-1], dp[-2])
