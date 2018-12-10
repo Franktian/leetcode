@@ -25,3 +25,28 @@ class Solution(object):
         res = []
         dfs(root, "")
         return res
+
+    def binaryTreePaths(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[str]
+        """
+        if not root:
+            return []
+
+        res = []
+        
+        st = [(root, str(root.val))]
+        
+        while st:
+            node, path = st.pop()
+            if not node.left and not node.right:
+                res.append(path)
+            
+            if node.left:
+                st.append((node.left, path + '->' + str(node.left.val)))
+            
+            if node.right:
+                st.append((node.right, path + '->' + str(node.right.val)))
+        
+        return res
