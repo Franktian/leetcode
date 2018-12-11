@@ -4,6 +4,7 @@ def addDigits(num):
     s = sumOfDigit(num)
     return addDigits(s)
 
+
 def sumOfDigit(num):
     s = 0
     while num != 0:
