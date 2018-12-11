@@ -9,4 +9,5 @@ def anagramMappings(A, B):
     for n in A:
         res.append(ht.get(n))
 
+
     return resadsfasdf
