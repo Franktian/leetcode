@@ -11,31 +11,32 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[List[str]]
         """
-        m = self.getHeight(root)
-        n = 2 ** m - 1
-
-        res = [["" for x in range(n)] for y in range(m)]
+        height = self.getHeight(root)
+        width = 2 ** height - 1
+        res = [["" for i in range(width)] for i in range(height)]
 
         queue = [root]
         l = 0
-        while queue:
+
+        while queue and l < height:
             for i in range(len(queue)):
                 node = queue.pop(0)
                 if node:
-                    left_padding = 2 ** (m - l - 1) - 1
-                    spacing = 2 ** (m - 1) - 1
+                    left_padding = 2 ** (height - l - 1) - 1
+                    spacing = 2 ** (height - l) - 1
                     index = left_padding + (spacing + 1) * i
                     res[l][index] = str(node.val)
                     queue.append(node.left)
                     queue.append(node.right)
+                else:
+                    # Key to make up empty space
+                    queue.append(None)
+                    queue.append(None)
             l += 1
-
         return res
 
     def getHeight(self, root):
-        if not root:
+        if root == None:
             return 0
-        l = self.getHeight(root.left)
-        r = self.getHeight(root.right)
-        
-        return max(l, r) + 1
+
+        return max(self.getHeight(root.left), self.getHeight(root.right)) + 1
