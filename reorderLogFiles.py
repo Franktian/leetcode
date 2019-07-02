@@ -11,7 +11,6 @@ class Solution(object):
         # Split and determine log type
         for l in logs:
             log = l.split()
-            identifier = log[0]
 
             if log[1].isdigit():
                 digits.append(l)
