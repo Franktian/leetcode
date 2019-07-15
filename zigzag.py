@@ -10,7 +10,7 @@ class Solution(object):
         y = 0
         xd = 0
         yd = 1
-        
+
         for i in range(len(s)):
             ht[(x, y)] = s[i]
 
